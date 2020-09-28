@@ -1,0 +1,48 @@
+/* COMIENZO HEADER */
+
+body {
+    background-color: black;
+}
+
+nav {
+    background-color: #2b1e1e;
+}
+
+a {
+    color: red;
+    font-size: 150%;
+    margin-left: 55%;
+}
+
+a:hover {
+    background-color: rgb(202, 86, 86);
+}
+
+
+/* FIN HEADER */
+
+
+/* COMIENZO MAIN */
+
+.titulopp {
+    color: rgb(187, 81, 81);
+}
+
+.divlogopp {
+    text-align: center;
+}
+
+.logopp {}
+
+.textopp {
+    text-align: center;
+    font-size: 25px;
+    color: wheat;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+/* FIN DEL MAIN */
