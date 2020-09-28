@@ -21,6 +21,4 @@
 </div>
 
 
-
-
 {include file='templates/public/footer.tpl'}
