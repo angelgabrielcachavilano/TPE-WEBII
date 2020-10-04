@@ -3,9 +3,9 @@
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <base href="{BASE_URL}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -26,10 +26,10 @@
 
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link text-danger" href="#">HOME </a>
-                            <a class="nav-link text-danger" href="#">CERVEZAS</a>
-                            <a class="nav-link text-danger" href="#">TIPOS</a>
-                            <a class="nav-link text-danger" href="#">CONTACTANOS</a>
+                            <a class="nav-link text-danger" href="{BASE_URL}home">HOME </a>
+                            <a class="nav-link text-danger" href="{BASE_URL}showBeer">CERVEZAS</a>
+                            <a class="nav-link text-danger" href="{BASE_URL}showCategories">TIPOS</a>
+                            <a class="nav-link text-danger" href="{BASE_URL}contactanos">CONTACTANOS</a>
 
                         </div>
                     </div>

@@ -11,11 +11,15 @@ class staticView{
 
     function __construct()
     {
+        // $this->smarty->assign('BASE_URL','//'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
         $this->smarty = new Smarty();
     }
 
-    public function viewHome(){
+    function viewHome(){
         $this->smarty->display( 'templates/public/index.tpl');
     }
+    function viewContacto(){
+        $this->smarty->display( 'templates/public/contacto.tpl');
 
+    }
 }

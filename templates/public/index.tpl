@@ -3,7 +3,7 @@
 <div class="row">
 
     <div class="col-12 mt-3">
-        <h1 class="titulopp">BEER HOUSE</h1>
+        <h1 class="titulopp">Beer House</h1>
     </div>
 
     <div class="col-12 divlogopp">

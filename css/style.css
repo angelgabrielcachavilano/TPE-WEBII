@@ -8,7 +8,7 @@ nav {
     background-color: #2b1e1e;
 }
 
-a {
+nav a {
     color: red;
     font-size: 150%;
     margin-left: 55%;
@@ -16,6 +16,10 @@ a {
 
 a:hover {
     background-color: rgb(202, 86, 86);
+}
+
+.btn {
+    font-variant: small-caps;
 }
 
 
@@ -26,13 +30,12 @@ a:hover {
 
 .titulopp {
     color: rgb(187, 81, 81);
+    font-variant: small-caps;
 }
 
 .divlogopp {
     text-align: center;
 }
-
-.logopp {}
 
 .textopp {
     text-align: center;
@@ -46,3 +49,83 @@ h1 {
 
 
 /* FIN DEL MAIN */
+
+
+/*CERVEZAS*/
+
+.textfilter {
+    color: rgb(148, 71, 71);
+    font-variant: small-caps;
+}
+
+.btnfiltro {
+    margin-left: 45%;
+}
+
+.selectbeers {
+    background-color: rgb(224, 118, 118);
+    font-variant: small-caps;
+}
+
+table {
+    text-align: center;
+    background-color: rgb(71, 9, 9);
+}
+
+table td,
+table th {
+    border-top: 1px solid pink;
+}
+
+.headerCervezas {
+    color: rgb(187, 81, 81);
+    font-size: x-large;
+    border-color: black;
+}
+
+td {
+    color: rgb(194, 163, 163);
+    font-size: x-large;
+}
+
+.nombre {
+    color: rgb(255, 102, 0);
+    font-variant: small-caps;
+}
+
+.ibu {
+    color: rgb(223, 122, 27);
+}
+
+.alcohol {
+    color: yellow;
+}
+
+
+/*FIN DE CERVEZAS*/
+
+
+/* CATEGORIAS */
+
+
+/* FIN CATEGORIAS */
+
+
+/* CONTACTO */
+
+.contacto {
+    text-align: center;
+    background-color: rgb(36, 34, 34);
+}
+
+.subt {
+    color: rgb(255, 102, 0);
+    font-variant: small-caps;
+}
+
+.textcon {
+    color: rgb(224, 125, 125);
+}
+
+
+/* FIN CONTACTO */

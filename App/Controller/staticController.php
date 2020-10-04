@@ -13,5 +13,7 @@ class staticController{
     function home(){
         $this->view->viewHome();
     }
-
+    function contacto(){
+        $this->view->viewContacto();
+    }
 }

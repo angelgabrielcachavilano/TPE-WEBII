@@ -1,6 +1,7 @@
 <?php
     require_once '../beerHouse/App/Controller/staticController.php';
-  
+    require_once '../beerHouse/App/Controller/beerController.php';
+    require_once '../beerHouse/App/Controller/categoryController.php';
 
     require_once 'RouterClass.php';
     
@@ -11,8 +12,15 @@
 
     // rutas
     $r->addRoute("home", "GET", "staticController", "home");
+    
+    $r->addRoute("contactanos", "GET", "staticController", "contacto");
 
+    $r->addRoute("showBeer","GET","beerController","showBeer");
+    $r->addRoute("showCategories","GET","categoryController","showCategories");
 
+    $r->addRoute("showCategory/:ID","GET","categoryController","showCategoryById");
+    
+    $r->addRoute("showBeerByCategories","POST","beerController","showBeerByCategories");
 
     // $r->addRoute("showGames", "GET", "juegoController", "showGames");
 
