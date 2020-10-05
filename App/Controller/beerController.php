@@ -8,8 +8,7 @@ class beerController{
     private $model;
     private $view;
 
-    function __construct()
-    {
+    function __construct(){
         $this->model = new beerModel();
         $this->view = new beerView();
     }
@@ -26,10 +25,5 @@ class beerController{
         $beers = $this->model->getBeerByCategories($id_category);
         $viewFile ='templates/public/beers.tpl';
         $this->view->showBeer($beers,$viewFile);
-
     }
-
-
-
-
 }

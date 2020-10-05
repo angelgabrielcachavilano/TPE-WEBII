@@ -22,9 +22,7 @@ a:hover {
     font-variant: small-caps;
 }
 
-
 /* FIN HEADER */
-
 
 /* COMIENZO MAIN */
 
@@ -47,9 +45,7 @@ h1 {
     text-align: center;
 }
 
-
 /* FIN DEL MAIN */
-
 
 /*CERVEZAS*/
 
@@ -101,15 +97,11 @@ td {
     color: yellow;
 }
 
-
 /*FIN DE CERVEZAS*/
-
 
 /* CATEGORIAS */
 
-
 /* FIN CATEGORIAS */
-
 
 /* CONTACTO */
 
@@ -126,6 +118,5 @@ td {
 .textcon {
     color: rgb(224, 125, 125);
 }
-
 
 /* FIN CONTACTO */

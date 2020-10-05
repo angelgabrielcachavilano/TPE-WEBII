@@ -11,7 +11,6 @@ class beerView{
         $this->smarty = new Smarty();
     }
 
-
     function showBeer($beers,$viewFile){
         $this->smarty->assign('beers',$beers);
         $this->smarty->display($viewFile);
