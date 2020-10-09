@@ -22,6 +22,10 @@ a:hover {
     font-variant: small-caps;
 }
 
+.logou {
+    margin-right: 0px;
+}
+
 
 /* FIN HEADER */
 
@@ -129,3 +133,146 @@ td {
 
 
 /* FIN CONTACTO */
+
+
+/* USER */
+
+.formuser {
+    background-color: blanchedalmond;
+    text-align: center;
+    font-variant: small-caps;
+    border: 10px;
+    border-style: double;
+}
+
+.textuser {
+    color: rgb(115 0 0);
+    font-variant: small-caps;
+}
+
+.alertuser {
+    font-size: xx-large;
+    color: red;
+}
+
+.adm {
+    color: rgb(228, 140, 39);
+}
+
+
+/* FIN USER */
+
+
+/* REGISTRO */
+
+.formreg {
+    background-color: rgb(219, 128, 76);
+    text-align: center;
+    font-variant: small-caps;
+    border-color: royalblue;
+    border: 10px;
+    border-style: double;
+}
+
+.tituloreg {
+    color: rgb(122, 48, 48);
+}
+
+.alertuserreg {
+    font-size: xx-large;
+    color: red;
+    background-color: rgb(255, 187, 0);
+}
+
+
+/* FIN REGISTRO */
+
+
+/* EDIT BEER */
+
+.titleedit {
+    color: rgb(122, 48, 48);
+    font-variant: small-caps;
+}
+
+.formedit {
+    border-color: royalblue;
+    border: 10px;
+    border-style: double;
+    background: blanchedalmond;
+    text-align: center;
+}
+
+.editlabel {
+    color: black;
+    font-size: 25px;
+}
+
+
+/* FIN EDIT */
+
+
+/* AGREGAR CERVEZA */
+
+.titleaddbeer {
+    color: rgb(122, 48, 48);
+    font-variant: small-caps;
+}
+
+.addbeerform {
+    background-color: rgb(248, 205, 124);
+    text-align: center;
+    border-style: double;
+    text-align: center;
+}
+
+
+/* FIN AGREGAR CERVEZA */
+
+
+/* AGREGAR CATEGORIAS */
+
+.tituloaddcat {
+    text-align: center;
+    color: rgb(63, 15, 15);
+    font-variant: small-caps;
+}
+
+.formaddcat {
+    text-align: center;
+    background-color: rgb(153, 47, 47);
+    border: 10px;
+    border-style: double;
+}
+
+.editlabeladdcat {
+    color: black;
+    font-size: 25px;
+}
+
+
+/* FIN AGREGAR CATEGORIAS */
+
+
+/* EDITAR CATEGORIA */
+
+.formeditcat {
+    text-align: center;
+    background-color: rgb(153, 47, 47);
+    border: 10px;
+    border-style: double;
+}
+
+.tituloeditcat {
+    text-align: center;
+    color: rgb(63, 15, 15);
+    font-variant: small-caps;
+}
+
+.editlabeleditcat {
+    color: black;
+    font-size: 25px;
+}
+
+
+/* FIN EDITAR CATEGORIA */

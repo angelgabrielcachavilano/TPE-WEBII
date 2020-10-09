@@ -13,13 +13,14 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-light rounded-pill">
                     <!-- Image and text -->
                     <nav class="navbar navbar-light ">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="{BASE_URL}home">
                             <img src="images/logo.png" width="100" height="100" class="d-inline-block align-top" alt="" loading="lazy">
                         </a>
                     </nav>
@@ -32,6 +33,9 @@
                             <a class="nav-link text-danger" href="{BASE_URL}contactanos">CONTACTANOS</a>
 
                         </div>
+                        {if LOGUEADO === true}
+                        <a class="badge badge-pill badge-warning logou" href="{BASE_URL}logout">LOGOUT</a> {/if} {if LOGUEADO === false}
+                        <a class="badge badge-pill badge-success logou" href="{BASE_URL}login">LOGIN</a> {/if}
                     </div>
                 </nav>
             </div>
