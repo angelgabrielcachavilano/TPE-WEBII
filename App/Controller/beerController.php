@@ -48,13 +48,20 @@ class beerController{
 
     function shoeEditBeer($params = null){
         $id_beer = $params[':ID'];
+        if(ISADMIN){
+
         if (isset($id_beer) === true) {
          $this->view->showEditBeer($this->model->getBeerByID($id_beer), $this->categoryModel->getAll());  
         }
+    }else{
+        header('Location: '.BASE_URL.'showBeer');
+
+    }
     }
 
     function editBeer($params = null){
-       
+        if(ISADMIN){
+
         $id_beer = $params[':ID'];
             // nombre, descripcion, imagen, precio, ibu, alcohol, id_categoria
             if (isset($_POST['nombre']) === true) {
@@ -86,54 +93,75 @@ class beerController{
                 header('Location: '.BASE_URL.'showBeer');
            
             }
+        }else{
+            header('Location: '.BASE_URL.'HOME');
+
+        }
     }
     function showAddBeer(){
+        if(ISADMIN){
         $categories = $this->categoryModel->getAll();
 
         $this->view->showAddBeer($categories);
+        }else{
+            header('Location: '.BASE_URL.'HOME');
+        }
 
     }
     function addBeer(){
-        if (isset($_POST['nombre']) === true) {
-            if($_POST['nombre'] != '' && $_POST['descripcion'] != '' && $_POST['precio'] != '' && $_POST['ibu'] != '' && $_POST['alcohol'] != '' && $_POST['categoria'] != ''){
-
-           
-            if ($_FILES['imagen']) {
-                if(!empty (($_FILES['imagen']['tmp_name']===false))){  
-                      $check = getimagesize($_FILES['imagen']['tmp_name']);
-                     }
-                if($check !== false) {
-                    $fileLocation = 'images/' . basename($_FILES['imagen']["name"]);
-
-                    move_uploaded_file($_FILES['imagen']['tmp_name'], $fileLocation);
-
-                    // Insertamos una nueva cerveza
-                    $this->model->addBeer(
-                        $_POST['nombre'],
-                        $_POST['descripcion'],
-                        $fileLocation,
-                        $_POST['precio'],
-                        $_POST['ibu'],
-                        $_POST['alcohol'],
-                        $_POST['categoria']);
+        if(ISADMIN){
+            if (isset($_POST['nombre']) === true) {
+                if($_POST['nombre'] != '' && $_POST['descripcion'] != '' && $_POST['precio'] != '' && $_POST['ibu'] != '' && $_POST['alcohol'] != '' && $_POST['categoria'] != ''){
+    
+               
+                if ($_FILES['imagen']) {
+                    if(!empty (($_FILES['imagen']['tmp_name']===false))){  
+                          $check = getimagesize($_FILES['imagen']['tmp_name']);
+                         }
+                    if($check !== false) {
+                        $fileLocation = 'images/' . basename($_FILES['imagen']["name"]);
+    
+                        move_uploaded_file($_FILES['imagen']['tmp_name'], $fileLocation);
+    
+                        // Insertamos una nueva cerveza
+                        $this->model->addBeer(
+                            $_POST['nombre'],
+                            $_POST['descripcion'],
+                            $fileLocation,
+                            $_POST['precio'],
+                            $_POST['ibu'],
+                            $_POST['alcohol'],
+                            $_POST['categoria']);
+                    } else {
+                        // imagen invalida
+                    }
                 } else {
-                    // imagen invalida
+                    // sin imagen
                 }
+                header('Location: '.BASE_URL.'showBeer');
             } else {
-                // sin imagen
-            }
-            header('Location: '.BASE_URL.'showBeer');
-        } else {
-             // Mostramos Form para crear cerveza
-             $this->view->showAddBeer($this->categoryModel->getAll());
-        } 
-    }
+                 // Mostramos Form para crear cerveza
+                 $this->view->showAddBeer($this->categoryModel->getAll());
+            } 
+        }
+        }else{
+            header('Location: '.BASE_URL.'HOME');
+
+        }
+        
     }
     public function deleteBeer($params = null) {
+        
         $id_beer = $params[':ID'];
+        if(ISADMIN){
+
         if (isset($id_beer) === true) {
             $this->model->deleteBeer($id_beer);
         }
         header('Location: '.BASE_URL.'showBeer');
-    }
+        } else{
+            header('Location: '.BASE_URL.'HOME');
+        
+            }
+        }  
 }

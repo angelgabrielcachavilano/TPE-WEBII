@@ -16,10 +16,7 @@ class beerModel{
     }
 
     function getBeerByCategories($id_category){
-        //CAMBIAR
-        $query = $this->db->prepare('SELECT cerveza.*,categoria.nombre AS categoria FROM cerveza JOIN categoria ON cerveza.id_categoria = categoria.id_categoria WHERE cerveza.id_categoria=? ');
-        // $query = $this->db->prepare('SELECT * FROM cerveza  ORDER BY cerveza.id_categoria=?');
-
+        $query = $this->db->prepare('SELECT * FROM cerveza GROUP BY cerveza.id_cerveza ORDER BY id_categoria=? DESC');
         $query->execute(array($id_category));
         return $query->fetchAll(PDO::FETCH_OBJ);
     }

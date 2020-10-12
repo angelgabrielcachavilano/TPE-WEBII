@@ -37,12 +37,16 @@ class categoryController{
         $this->view->showCategory($category);
     }
     function showAddCategory(){
+        if(ISADMIN){
         $this->view->showAddCategory();
+        }else{
+            header('Location: '.BASE_URL.'HOME');
+        }
 
     }
      function addCategory() {
-        
-         if($_POST['nombre'] != '' && $_POST['descripcion'] != ''){
+         if(ISADMIN){
+            if($_POST['nombre'] != '' && $_POST['descripcion'] != ''){
                 $this->model->addCategory(
                     $_POST['nombre'],
                     $_POST['descripcion'],
@@ -57,21 +61,31 @@ class categoryController{
            
        
         $this->view->showAddCategory();
+         }else{
+            header('Location: '.BASE_URL.'HOME');
+         }
+        
+        
 
     }
 
    
    function showEditCategory($params = null){
     $id_category = $params[':ID'];
+    if(ISADMIN){
     $categoryData = $this->model->getByID( $id_category);
     
     $this->view->showEditCategory($categoryData);   
+    }else{
+        header('Location: '.BASE_URL.'HOME');
 
+    }
 
    }
 
    function editCategory($params = null){
     $id_category = $params[':ID'];
+    if(ISADMIN){
     if (isset( $id_category) === true) {
         // nombre, descripcion, imagen, precio, ibu, alcohol, id_categoria
         if (isset($_POST['nombre']) === true) {
@@ -85,13 +99,21 @@ class categoryController{
 
             header('Location: '.BASE_URL.'showCategories');
         } 
-   }
+     }
+    }else{
+        header('Location: '.BASE_URL.'HOME');
+     }
 }
 
    function deleteCategory($params = null){
+    if(ISADMIN){
     $id_category = $params[':ID'];
     $this->model->deleteCategory($id_category);
     header('Location: '.BASE_URL.'showCategories');
+    }else{
+        header('Location: '.BASE_URL.'HOME');
+
+    }
    }
 
 }
