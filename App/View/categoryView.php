@@ -19,4 +19,14 @@ class categoryView{
         $this->smarty->assign('category',$category);
         $this->smarty->display('templates/public/category.tpl');
     }
+    function showAddCategory(){
+        $this->smarty->display('templates/admin/categories/addCategory.tpl');
+
+    }
+    function showEditCategory($categoryData){
+       
+        $this->smarty->assign('category',$categoryData);
+        $this->smarty->display('templates/admin/categories/editCategory.tpl');
+
+    }
 }

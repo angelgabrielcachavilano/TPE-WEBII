@@ -12,8 +12,6 @@
                     {foreach $categories as $category}
                     <option class="selectbeers" value="{$category->id_categoria}">{$category->nombre}</option>
                     {/foreach}
-
-              
             </select>
                 <button class="btn btn-danger btnfiltro">Filtrar</button>
             </form>
@@ -24,7 +22,7 @@
         </div>
     </div>
     <div class="col-4">
-
+        <a href="showAddBeer" class="btn btn-info ml-5 mt-4">Agregar una nueva cerveza</a>
     </div>
 </div>
 
@@ -40,6 +38,8 @@
                     <th scope="col">Ibu</th>
                     <th scope="col">Alcohol</th>
                     <th scope="col">Info</th>
+                    <th scope="col" class="adm">ADMIN MOD</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -54,8 +54,9 @@
                     <td class="ibu">{$beer->ibu}</td>
                     <td class="alcohol">{$beer->alcohol}</td>
                     <td>
-                        <a href="{BASE_URL}showCategory/{$beer->id_categoria}" class="btn btn-danger ">Ver categoria</a>
+                        <a href="{BASE_URL}showCategory/{$beer->id_categoria}" class="btn btn-info ">Ver categoria</a>
                     </td>
+                    <td> <a href="{BASE_URL}shoeEditBeer/{$beer->id_cerveza}" class="btn btn-warning "> editar </a> - <a href="{BASE_URL}deleteBeer/{$beer->id_cerveza}" class="btn btn-danger "> borrar </a>
                 </tr>
                 {/foreach}
             </tbody>
