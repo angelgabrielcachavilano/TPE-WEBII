@@ -1,4 +1,5 @@
 <?php
+
     require_once '../beerHouse/App/Controller/beerController.php';
     require_once '../beerHouse/App/Controller/categoryController.php';
     require_once '../beerHouse/App/Controller/userController.php';
