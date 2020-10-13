@@ -94,7 +94,6 @@
             }else{
                 header('Location: '.BASE_URL.'HOME');
             }
-
         }
 
         function addBeer(){

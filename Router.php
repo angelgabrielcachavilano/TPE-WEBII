@@ -1,8 +1,8 @@
 <?php
-
-    require_once '../beerHouse/App/Controller/beerController.php';
-    require_once '../beerHouse/App/Controller/categoryController.php';
-    require_once '../beerHouse/App/Controller/userController.php';
+    // modificar en local
+    require_once '../TEWEBII/App/Controller/beerController.php';
+    require_once '../TEWEBII/App/Controller/categoryController.php';
+    require_once '../TEWEBIIgitq/App/Controller/userController.php';
     require_once 'configuration.php';
     require_once 'RouterClass.php';
     
