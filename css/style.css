@@ -1,5 +1,4 @@
 /* COMIENZO HEADER */
-
 body {
     background-color: black;
 }
@@ -22,18 +21,12 @@ a:hover {
     font-variant: small-caps;
 }
 
-<<<<<<< HEAD
-=======
 .logou {
     margin-right: 0px;
 }
-
-
->>>>>>> 8a7196b86d0c1e4fee2dd03e6d939efdd86f7975
 /* FIN HEADER */
 
 /* COMIENZO MAIN */
-
 .titulopp {
     color: rgb(187, 81, 81);
     font-variant: small-caps;
@@ -52,11 +45,9 @@ a:hover {
 h1 {
     text-align: center;
 }
-
 /* FIN DEL MAIN */
 
 /*CERVEZAS*/
-
 .textfilter {
     color: rgb(148, 71, 71);
     font-variant: small-caps;
@@ -104,7 +95,6 @@ td {
 .alcohol {
     color: yellow;
 }
-
 /*FIN DE CERVEZAS*/
 
 /* CATEGORIAS */
@@ -112,7 +102,6 @@ td {
 /* FIN CATEGORIAS */
 
 /* CONTACTO */
-
 .contacto {
     text-align: center;
     background-color: rgb(36, 34, 34);
@@ -126,16 +115,9 @@ td {
 .textcon {
     color: rgb(224, 125, 125);
 }
-
-<<<<<<< HEAD
 /* FIN CONTACTO */
-=======
-
-/* FIN CONTACTO */
-
 
 /* USER */
-
 .formuser {
     background-color: blanchedalmond;
     text-align: center;
@@ -157,13 +139,9 @@ td {
 .adm {
     color: rgb(228, 140, 39);
 }
-
-
 /* FIN USER */
 
-
 /* REGISTRO */
-
 .formreg {
     background-color: rgb(219, 128, 76);
     text-align: center;
@@ -182,13 +160,9 @@ td {
     color: red;
     background-color: rgb(255, 187, 0);
 }
-
-
 /* FIN REGISTRO */
 
-
 /* EDIT BEER */
-
 .titleedit {
     color: rgb(122, 48, 48);
     font-variant: small-caps;
@@ -206,13 +180,9 @@ td {
     color: black;
     font-size: 25px;
 }
-
-
 /* FIN EDIT */
 
-
 /* AGREGAR CERVEZA */
-
 .titleaddbeer {
     color: rgb(122, 48, 48);
     font-variant: small-caps;
@@ -224,13 +194,9 @@ td {
     border-style: double;
     text-align: center;
 }
-
-
 /* FIN AGREGAR CERVEZA */
 
-
 /* AGREGAR CATEGORIAS */
-
 .tituloaddcat {
     text-align: center;
     color: rgb(63, 15, 15);
@@ -248,13 +214,9 @@ td {
     color: black;
     font-size: 25px;
 }
-
-
 /* FIN AGREGAR CATEGORIAS */
 
-
 /* EDITAR CATEGORIA */
-
 .formeditcat {
     text-align: center;
     background-color: rgb(153, 47, 47);
@@ -272,7 +234,4 @@ td {
     color: black;
     font-size: 25px;
 }
-
-
 /* FIN EDITAR CATEGORIA */
->>>>>>> 8a7196b86d0c1e4fee2dd03e6d939efdd86f7975
