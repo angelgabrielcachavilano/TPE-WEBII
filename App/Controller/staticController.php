@@ -1,20 +1,20 @@
 <?php
 
-require_once './App/View/staticView.php';
+    require_once './App/View/staticView.php';
 
-class staticController{
+    class staticController{
 
-    private $view;
+        private $view;
 
-    function __construct(){
-        $this->view = new staticView();
+        function __construct(){
+            $this->view = new staticView();
+        }
+
+        function home(){
+            $this->view->viewHome();
+        }
+
+        function contacto(){
+            $this->view->viewContacto();
+        }
     }
-
-    function home(){
-        $this->view->viewHome();
-    }
-
-    function contacto(){
-        $this->view->viewContacto();
-    }
-}
