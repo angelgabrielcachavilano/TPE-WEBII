@@ -17,7 +17,7 @@
         function getById($id_category){
             $query = $this->db->prepare('SELECT * FROM categoria WHERE id_categoria = ?');
             $query->execute(array($id_category));   
-            return $query->fetch(PDO::FETCH_OBJ);
+            return $query->fetchAll(PDO::FETCH_OBJ);
         }
 
         function addCategory($name, $description){
