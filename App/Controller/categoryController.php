@@ -34,6 +34,7 @@ class categoryController{
         $id_category = $params[':ID'];
        
         $category = $this->model->getById($id_category);
+       
         $this->view->showCategory($category);
     }
     function showAddCategory(){

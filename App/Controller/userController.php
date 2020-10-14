@@ -43,7 +43,7 @@ class userController{
         // $this->helper->checkLoggedIn();
         $this->view->viewContacto();
     }
-    function veryUser(){
+    function  verifyUser(){
         $user = $_POST["email"];
         $pass = $_POST["password"];
      
