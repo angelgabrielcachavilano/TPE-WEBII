@@ -1,8 +1,8 @@
 <?php
     // modificar en local
-    require_once '../TEWEBII/App/Controller/beerController.php';
-    require_once '../TEWEBII/App/Controller/categoryController.php';
-    require_once '../TEWEBIIgitq/App/Controller/userController.php';
+    require_once './App/Controller/beerController.php';
+    require_once './App/Controller/categoryController.php';
+    require_once './App/Controller/userController.php';
     require_once 'configuration.php';
     require_once 'RouterClass.php';
     
@@ -19,7 +19,7 @@
     $r->addRoute("showSignIn", "GET", "userController", "showSignIn");
     $r->addRoute("singIn", "POST", "userController", "singIn");
     $r->addRoute("logout", "GET", "userController", "logout");
-    $r->addRoute("veryUser", "POST", "userController", "veryUser");
+    $r->addRoute("veryUser", "POST", "userController", "verifyUser");
     $r->addRoute("contactanos", "GET", "userController", "contacto");
 
     // beerController

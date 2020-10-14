@@ -8,10 +8,10 @@
 
         private $view;
         private $model;
-        private $helper;
+        // private $helper;
 
         function __construct(){
-            $this->helper = new authHelper;
+            // $this->helper = new authHelper;
             $this->view = new userView();
             $this->model = new userModel();
         }
@@ -40,7 +40,7 @@
             $this->view->viewContacto();
         }
 
-        function veryUser(){
+        function verifyUser(){
             $user = $_POST["email"];
             $pass = $_POST["password"];
         
