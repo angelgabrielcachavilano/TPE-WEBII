@@ -1,8 +1,6 @@
 {include file='templates/public/header.tpl'} 
 
-    {foreach $category as $cate}
-        <h1 class="titulopp mt-3 mb-3">Categoria: {$cate->nombre}</h1>
-    {/foreach}
+        <h1 class="titulopp mt-3 mb-3">Categoria: {$category->nombre}</h1>
 
     <div class="row">
         <div class="col-12">
@@ -14,12 +12,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {foreach from=$category item=cate}
+
                     <tr>
-                        <td class="nombre">{$cate->nombre}</td>
-                        <td>{$cate->descripcion}</td>
+                        <td class="nombre">{$category->nombre}</td>
+                        <td>{$category->descripcion}</td>
                     </tr>
-                    {/foreach}
+
                 </tbody>
             </table>
         </div>
