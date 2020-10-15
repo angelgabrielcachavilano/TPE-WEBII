@@ -44,7 +44,7 @@
             $user = $_POST["email"];
             $pass = $_POST["password"];
         
-            if (isset($_POST['email']) === true && isset($_POST['password']) === true) {     
+            if (isset($_POST['email']) != ' ' && isset($_POST['password']) != ' ') {     
                 $userDB = $this->model->getUser($user);     
                 if(isset($userDB) &&  $userDB){
                     //Si el usuario existe   
@@ -69,7 +69,7 @@
 
         function singIn(){
             $error = null;
-            if (isset($_POST['email']) === true) {
+            if (isset($_POST['email']) != ' ') {
                 if (isset($_POST['password']) && isset($_POST['password2']) && $_POST['password'] === $_POST['password2']) {
                     $validation = $this->model->getUser($_POST['email']);
                     if(!$validation){

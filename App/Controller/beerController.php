@@ -13,7 +13,7 @@
         private $categoryModel;
 
         function __construct(){  
-            $this->helper = new authHelper;
+            // $this->helper = new authHelper;
             // $this->helper->checkLoggedIn();
             $this->categoryModel = new categoryModel();
             $this->model = new beerModel();
@@ -55,7 +55,7 @@
             if(ISADMIN){
             $id_beer = $params[':ID'];
                 // nombre, descripcion, imagen, precio, ibu, alcohol, id_categoria
-                if (isset($_POST['nombre']) === true) {
+                if (isset($_POST['nombre']) != ' ' ) {
                     $fileLocation = 'images/default.jpg';
                     // Chequeamos que la imagen enviada no este vacia
                     if (strlen($_FILES['imagen']['tmp_name']) > 0) {
@@ -99,7 +99,7 @@
         function addBeer(){
 
             if(ISADMIN){
-                if (isset($_POST['nombre']) === true) {
+                if (isset($_POST['nombre']) != ' ') {
                     if($_POST['nombre'] != '' && $_POST['descripcion'] != '' && $_POST['precio'] != '' && $_POST['ibu'] != '' && $_POST['alcohol'] != '' && $_POST['categoria'] != ''){
                         if ($_FILES['imagen']) {
                             if(!empty (($_FILES['imagen']['tmp_name']===false))){  
