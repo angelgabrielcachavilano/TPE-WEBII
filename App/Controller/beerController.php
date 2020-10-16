@@ -9,7 +9,7 @@
 
         private $model;
         private $view;
-        private $helper;
+        // private $helper;
         private $categoryModel;
 
         function __construct(){  
@@ -53,19 +53,21 @@
 
         function editBeer($params = null){
             if(ISADMIN){
-            $id_beer = $params[':ID'];
+                $id_beer = $params[':ID'];
                 // nombre, descripcion, imagen, precio, ibu, alcohol, id_categoria
-                if (isset($_POST['nombre']) != ' ' ) {
+                if (isset($_POST['nombre']) != '' ) {
                     $fileLocation = 'images/default.jpg';
                     // Chequeamos que la imagen enviada no este vacia
                     if (strlen($_FILES['imagen']['tmp_name']) > 0) {
-                        var_dump($_FILES['imagen']);
+                        // var_dump($_FILES['imagen']);
                         // Chequeamos el tamaño de la imagen para ver que sea valida 
-                        $check = getimagesize($_FILES['imagen']['tmp_name']);
+                        $check = getimagesize($_FILES['imagen']['tmp_name']); 
+                        // recibe la imagen las dimensiones
                         if($check !== false) {
                             // Armamos la ruta y la movemos
                             $fileLocation = 'images/' . basename($_FILES['imagen']["name"]);
                             move_uploaded_file($_FILES['imagen']['tmp_name'], $fileLocation);
+                            // lo que se mueve y a donde
                         }
                     }
                     // Insertamos una nueva cerveza
@@ -97,9 +99,8 @@
         }
 
         function addBeer(){
-
             if(ISADMIN){
-                if (isset($_POST['nombre']) != ' ') {
+                if (isset($_POST['nombre']) != '') {
                     if($_POST['nombre'] != '' && $_POST['descripcion'] != '' && $_POST['precio'] != '' && $_POST['ibu'] != '' && $_POST['alcohol'] != '' && $_POST['categoria'] != ''){
                         if ($_FILES['imagen']) {
                             if(!empty (($_FILES['imagen']['tmp_name']===false))){  

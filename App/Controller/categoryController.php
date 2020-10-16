@@ -73,7 +73,7 @@
             if(ISADMIN){
             if (isset( $id_category) === true) {
                 // nombre, descripcion, imagen, precio, ibu, alcohol, id_categoria
-                if (isset($_POST['nombre']) != ' ') {
+                if (isset($_POST['nombre']) != '') {
                     // Insertamos una nueva cerveza
                     $this->model->editCategory( $_POST['nombre'], $_POST['descripcion'], $id_category );
                     header('Location: '.BASE_URL.'showCategories');
