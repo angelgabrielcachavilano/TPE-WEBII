@@ -10,8 +10,10 @@
             <form action="{BASE_URL}showBeerByCategories/" method="POST">
                 <select class="form-control selectbeers" name="categorias" id="exampleSelect1">
                     {foreach $categories as $category}
-                    <option class="selectbeers" value="{$category->id_categoria}">{$category->nombre}</option>
+                    <option class="selectbeers" value="{$category['id_categoria']}">{$category['nombre']}</option>
                     {/foreach}
+                    <option class="selectbeers" value="all">Ver todas</option>
+
             </select>
                 <button class="btn btn-danger btnfiltro">Filtrar</button>
             </form>
@@ -56,7 +58,7 @@
                     <td>
                         <a href="{BASE_URL}showCategory/{$beer->id_categoria}" class="btn btn-info ">Ver categoria</a>
                     </td>
-                    <td> <a href="{BASE_URL}shoeEditBeer/{$beer->id_cerveza}" class="btn btn-warning "> editar </a> - <a href="{BASE_URL}deleteBeer/{$beer->id_cerveza}" class="btn btn-danger "> borrar </a>
+                    <td> <a href="{BASE_URL}showEditBeer/{$beer->id_cerveza}" class="btn btn-warning "> editar </a> - <a href="{BASE_URL}deleteBeer/{$beer->id_cerveza}" class="btn btn-danger "> borrar </a>
                 </tr>
                 {/foreach}
             </tbody>

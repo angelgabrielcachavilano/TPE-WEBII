@@ -9,10 +9,10 @@
             <small class="textfilter">Ordenar por la siguiente categoria:</small>
             <form action="{BASE_URL}showBeerByCategories/" method="POST">
                 <select class="form-control selectbeers" name="categorias" id="exampleSelect1">
-                <option class="selectbeers" value="1">Blondie</option>
-                <option class="selectbeers" value="3">Red Lagger</option>
-                <option class="selectbeers" value="4">Ipa</option>
-                <option class="selectbeers" value="5">Negra </option>
+                    {foreach $categories as $category}
+                    <option class="selectbeers" value="{$category['id_categoria']}">{$category['nombre']}</option>
+                    {/foreach}
+                    <option class="selectbeers" value="all">Ver todas</option>
             </select>
                 <button class="btn btn-danger btnfiltro">Filtrar</button>
             </form>

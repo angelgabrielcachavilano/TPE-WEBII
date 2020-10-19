@@ -10,11 +10,11 @@ class userController{
 
     private $view;
     private $model;
-    private $helper;
+    // private $helper;
 
     function __construct()
     {
-        $this->helper = new authHelper;
+        // $this->helper = new authHelper;
         $this->view = new userView();
         $this->model = new userModel();
     }
@@ -48,7 +48,7 @@ class userController{
         $pass = $_POST["password"];
      
     
-        if (isset($_POST['email']) === true && isset($_POST['password']) === true) {
+        if (isset($_POST['email']) != '' && isset($_POST['password']) != '') {
           
             $userDB = $this->model->getUser($user);
             
@@ -82,8 +82,8 @@ class userController{
     }
     function singIn(){
         $error = null;
-        if (isset($_POST['email']) === true) {
-            if (isset($_POST['password']) && isset($_POST['password2']) && $_POST['password'] === $_POST['password2']) {
+        if (isset($_POST['email']) != '') {
+            if (isset($_POST['password'] ) != '' && isset($_POST['password2']) != '' && $_POST['password'] === $_POST['password2']) {
 
                 $validation = $this->model->getUser($_POST['email']);
                 

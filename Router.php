@@ -27,7 +27,7 @@
     $r->addRoute("showAddBeer","GET","beerController","showAddBeer");
     $r->addRoute("addBeer","POST","beerController","addBeer");
     $r->addRoute("showBeerByCategories","POST","beerController","showBeerByCategories");
-    $r->addRoute("shoeEditBeer/:ID","GET","beerController","shoeEditBeer");
+    $r->addRoute("showEditBeer/:ID","GET","beerController","showEditBeer");
     $r->addRoute("editBeer/:ID","POST","beerController","editBeer");
     $r->addRoute("deleteBeer/:ID","GET","beerController","deleteBeer");
 

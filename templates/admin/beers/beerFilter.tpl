@@ -1,6 +1,6 @@
 {include file='templates/public/header.tpl'}
 
-<h1 class="titulopp mt-3 mb-3">Nuestras Cervezas</h1>
+<h1 class="titulopp mt-3 mb-3"></h1>
 <div class="row">
 
     <div class="col-4"></div>
@@ -13,8 +13,6 @@
                     <option class="selectbeers" value="{$category['id_categoria']}">{$category['nombre']}</option>
                     {/foreach}
                     <option class="selectbeers" value="all">Ver todas</option>
-
-              
             </select>
                 <button class="btn btn-danger btnfiltro">Filtrar</button>
             </form>
@@ -25,7 +23,7 @@
         </div>
     </div>
     <div class="col-4">
-
+        <a href="showAddBeer" class="btn btn-info ml-5 mt-4">Agregar una nueva cerveza</a>
     </div>
 </div>
 
@@ -40,10 +38,8 @@
                     <th scope="col">Precio</th>
                     <th scope="col">Ibu</th>
                     <th scope="col">Alcohol</th>
-                    {if {$beer->categoria_nombre} === true}
                     <th scope="col">Info</th>
-                    {/if}
-                    <th scope="col">Categoria</th>
+                    <th scope="col" class="adm">ADMIN MOD</th>
 
                 </tr>
             </thead>
@@ -58,12 +54,11 @@
                     <td>{$beer->precio}</td>
                     <td class="ibu">{$beer->ibu}</td>
                     <td class="alcohol">{$beer->alcohol}</td>
-                    {if {$beer->categoria_nombre} === true}
-                    <td class="alcohol">{$beer->categoria_nombre}</td>
-                    {/if}
                     <td>
-                        <a href="{BASE_URL}showCategory/{$beer->id_categoria}" class="btn btn-danger ">Ver categoria</a>
+                        <a href="{BASE_URL}showCategory/{$beer->id_categoria}" class="btn btn-info ">Ver categoria</a>
                     </td>
+                    <td> <a href="{BASE_URL}showEditBeer/{$beer->id_cerveza}" class="btn btn-warning "> editar </a> - <a href="{BASE_URL}deleteBeer/{$beer->id_cerveza}" class="btn btn-danger "> borrar </a>
+
                 </tr>
                 {/foreach}
             </tbody>

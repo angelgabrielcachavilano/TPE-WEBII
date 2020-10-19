@@ -7,11 +7,11 @@ class categoryController{
 
     private $model;
     private $view;
-    private $helper;
+    // private $helper;
     
     function __construct()
     {
-        $this->helper = new authHelper;
+        // $this->helper = new authHelper;
         // $this->helper->checkLoggedIn();
 
         $this->model = new categoryModel();
@@ -89,7 +89,7 @@ class categoryController{
     if(ISADMIN){
     if (isset( $id_category) === true) {
         // nombre, descripcion, imagen, precio, ibu, alcohol, id_categoria
-        if (isset($_POST['nombre']) === true) {
+        if (isset($_POST['nombre']) != '') {
             // Insertamos una nueva cerveza
             $this->model->editCategory(
                

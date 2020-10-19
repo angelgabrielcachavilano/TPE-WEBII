@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2020 a las 18:16:04
+-- Tiempo de generación: 14-10-2020 a las 06:37:34
 -- Versión del servidor: 10.1.39-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -76,10 +76,10 @@ INSERT INTO `cerveza` (`id_cerveza`, `nombre`, `descripcion`, `imagen`, `precio`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE `usuario` (
   `id_user` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -87,10 +87,10 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuarios` (`id_user`, `email`, `password`, `admin`) VALUES
+INSERT INTO `usuario` (`id_user`, `email`, `password`, `admin`) VALUES
 (1, 'admin@gmail.com', '$2y$10$oSA0ucJiPHZ.7WwBFIcbjOntwBk6y1osJG5cGHMGLpUQY/Of3A8KS', 1),
 (2, 'usuario@gmail.com', '$2y$10$LbKB8nK0oip4l695Va8dfu7vwirKozm8n8koNdJ4c1YLRSxW.uFKO', 0),
 (3, 'random@gmail.com', '$2y$10$jdwtGTQ/UEKkl6YGsrwVfe.d8gUpR.8HjGt/L2QRNOwdnh/mkp8Z.', 0),
@@ -118,9 +118,9 @@ ALTER TABLE `cerveza`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indices de la tabla `usuario`
 --
-ALTER TABLE `usuarios`
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_user`);
 
 --
@@ -131,18 +131,18 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
-ALTER TABLE `usuarios`
+ALTER TABLE `usuario`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
