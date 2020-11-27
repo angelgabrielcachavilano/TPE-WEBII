@@ -3,7 +3,7 @@
     require_once './App/Controller/categoryController.php';
     require_once './App/Controller/userController.php';
     require_once 'configuration.php';
-    require_once 'RouterClass.php';
+    require_once './libs/RouterClass.php';
     
     // CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
@@ -24,6 +24,7 @@
     $r->addRoute("contactanos", "GET", "userController", "contacto");
 
     $r->addRoute("showBeer","GET","beerController","showBeer");
+    $r->addRoute("showBeerDetail/:ID","GET","beerController","beerDetail");
     $r->addRoute("showAddBeer","GET","beerController","showAddBeer");
     $r->addRoute("addBeer","POST","beerController","addBeer");
     $r->addRoute("showBeerByCategories","POST","beerController","showBeerByCategories");

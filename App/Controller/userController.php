@@ -116,5 +116,30 @@ class userController{
         }
         $this->view->viewRegister($error);
     }
+    // admin method
+    public function listUsers() {
+        $users = $this->userModel->getUsers();
+        // $this->view->viewListUsers($users);
+    }
 
+    // admin method
+    public function setAdminStatus() {
+        if ($_GET['id'] !== ADMIN_ID) {
+            $id = (int) $_GET['id'];
+            $newStatus = false;
+
+            if($_GET['method'] === 'darpermisos') {
+                $newStatus = true;
+            }
+
+            $this->userModel->setStatus($id, $newStatus);
+        }
+        header('Location: '.BASE_URL.'/admin/usuarios');
+    }
+    public function deleteUser() {
+        if (isset($_GET['id']) === true && $_GET['id'] !== ADMIN_ID) {
+            $this->userModel->deleteUser($_GET['id']);
+        }
+        header('Location: '.BASE_URL.'admin/usuarios');
+    }
 }

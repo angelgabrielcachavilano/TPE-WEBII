@@ -276,3 +276,51 @@ td {
 
 
 /* FIN EDITAR CATEGORIA */
+
+
+/* COMIENZO CARTA INFO BEER */
+
+.cartabeer {
+    text-align: center;
+    background-color: rgb(63, 15, 15);
+    color: white;
+    border-color: rgb(184, 70, 4);
+    border-radius: 5%;
+    border-style: double;
+    border-width: 5px;
+}
+
+.infobeer {
+    width: 18rem;
+    text-align: center;
+}
+
+.imgbeerinfo {
+    width: 200px;
+    height: auto;
+}
+
+.licolor {
+    background-color: rgb(63, 15, 15);
+    color: white;
+}
+
+.addcom {
+    background-color: rgb(255, 175, 83);
+    border-color: rgb(184, 70, 4);
+    text-align: center;
+    border-radius: 7%;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.tabladecomentarios {
+    background-color: rgb(63, 15, 15);
+    color: white;
+    border-color: rgb(184, 70, 4);
+    border-style: solid;
+    border-width: 2px;
+}
+
+
+/* FIN CARTA */

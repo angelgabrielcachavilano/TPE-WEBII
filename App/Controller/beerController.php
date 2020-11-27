@@ -2,7 +2,7 @@
 
 require_once './App/Model/beerModel.php';
 require_once './App/Model/categoryModel.php';
-
+require_once ('./App/Model/commentModel.php');
 require_once './App/View/beerView.php';
 require_once './libs/helpers/authHelper.php';
 class beerController{
@@ -11,14 +11,50 @@ class beerController{
     private $view;
     // private $helper;
     private $categoryModel;
+    private $userModel;
     function __construct()
     {
         // $this->helper = new authHelper;
         // $this->helper->checkLoggedIn();
         $this->categoryModel = new categoryModel();
+        $this->userModel = new userModel();
+        $this->commentModel = new commentModel();
         $this->model = new beerModel();
         $this->view = new beerView();
     }
+
+    function beerDetail(  $params = null) {
+    
+        $id_beer = $params[':ID'];
+
+        if (isset($_SESSION["EMAIL"]) === true) {
+            $user = $this->userModel->getUser($_SESSION['EMAIL']);
+          
+        } else {
+            $user = false;
+        }
+    
+        $item = $this->model->getBeerByID($id_beer);
+
+        if (isset($item) === true && isset($item->id_categoria) == true){
+        
+            $comments = $this->commentModel->getComments($id_beer);
+            if (count($comments) > 0) {
+                $i = 0;
+                foreach ($comments as $comment) {
+                    $comments[$i]->user = $this->userModel->getUser($comment->id_usuario);
+                    $i++;
+                }
+            }
+            
+            $this->view->showDetail($item, $comments, $user);
+        } else {
+            header('Location: '.BASE_URL);
+        }
+        
+        
+    }
+
 
     function showBeer(){
        

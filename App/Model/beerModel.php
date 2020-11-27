@@ -23,7 +23,7 @@ class beerModel{
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
     public function getBeerByID($id) {
-        $query = $this->db->prepare('SELECT * FROM cerveza WHERE id_cerveza = ?');
+        $query = $this->db->prepare('SELECT cerveza.*,categoria.*, categoria.nombre AS categoria_nombre , cerveza.nombre AS nombre FROM cerveza INNER JOIN categoria ON cerveza.id_categoria = categoria.id_categoria WHERE id_cerveza=?');
         $query->execute(array($id));
         return $query->fetch(PDO::FETCH_OBJ);
         

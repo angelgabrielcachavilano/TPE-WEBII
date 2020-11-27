@@ -29,4 +29,12 @@ class beerView{
         $this->smarty->display('templates/admin/beers/addBeer.tpl');
 
     }
+
+    public function showDetail($beerData, $comments, $userData) {
+        $this->smarty->assign('beer', $beerData);
+        $this->smarty->assign('user', $userData);
+        $this->smarty->assign('comments', $comments);
+
+        $this->smarty->display('templates/public/itemDetail.tpl');
+    }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2020 a las 06:37:34
+-- Tiempo de generación: 27-11-2020 a las 23:58:57
 -- Versión del servidor: 10.1.39-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -42,7 +42,8 @@ INSERT INTO `categoria` (`id_categoria`, `nombre`, `descripcion`) VALUES
 (1, 'Blondie', 'Dentro de las rubias existen muchos tipos diferentes, con distintas formas de elaboracion. Para ser claros, el termino de cerveza rubia no hace referencia a ningun tipo de estilo o variedad concreta, sino que se refiere a muchisimas cervezas que tienen algo en comun: y es su elaboracion con maltas palidas o claras.'),
 (3, 'Red Lagger', 'Esta cerveza, este color, se origino en Escocia, y esta pelirroja se encuentra desde hace siglos entre nosotros.\r\nEn su elaboracion predominan la malta de cebada y su color rubi, y a diferencia de la cerveza negra, por ejemplo, casi no incluye lupulo. Se suele distinguir por sus aromas frutales.'),
 (4, 'Ipa', '\0En esencia, dos son los caracteres significativos de este tipo de cerveza: la graduacion alcoholica y la presencia de lupulo.\r\nY todo ello, como vimos al tratar la historia y origen de este tipo de cerveza, porque para que pudiera ser transportada en largos viajes, el alcohol proporcionaba un ambiente hostil para los microbios, y porque el lupulo ? conservante natural ? previene el crecimiento de las bacterias que causan la acidez.\r\nEste era el origen del termino India en la denominacion (cerveza elaborada para ser llevada a las colonias britanicas), quedando asi aclarado que el termino en la denominacion de la cerveza no refiere su pais de origen'),
-(5, 'Negra', '\0Para conseguir una cerveza negra y lograr esa oscuridad final hay que tener en cuenta que lo principal para estas es la utilizacion de maltas tostadas, oscuras. Algunas de las maltas utilizadas para estas cervezas son: Roasted Barley, Chocolate, o Black Patent.');
+(5, 'Negra', '\0Para conseguir una cerveza negra y lograr esa oscuridad final hay que tener en cuenta que lo principal para estas es la utilizacion de maltas tostadas, oscuras. Algunas de las maltas utilizadas para estas cervezas son: Roasted Barley, Chocolate, o Black Patent.'),
+(6, 'TEST', 'CLAYMORE ');
 
 -- --------------------------------------------------------
 
@@ -72,6 +73,41 @@ INSERT INTO `cerveza` (`id_cerveza`, `nombre`, `descripcion`, `imagen`, `precio`
 (4, 'Barley Wine', 'El roble tiene una larga historia acompaniando las bebidas. Cerveza, vino, whisky y otros destilados fueron guardados en barricas de Roble hasta la llegada del acero inoxidable. Pero como en la cerveza artesanal todo vuelve, una vez mas en Antares corremo', 'images/Barley.png', 170, 24, 14, 3),
 (5, 'Scotch', 'Escocia es tierra de cebada y la Scotch Ale lleva ese paisaje impregnado en su codigo genetico. Rubi intenso. Seis grados de alcohol. Dulce y maltosa. La cerveza mas servida en nuestro Brewpub. Una formula a prueba del paso del tiempo.', 'images/Scotch.png', 170, 18, 6, 1),
 (6, 'IPA', 'La India Pale Ale es una cerveza fuerte de color Ambar con un aroma intenso floral y frutal, de lupulos seleccionados en su elaboracion. Su amargor es elevado y se encuentra en balance con el dulzor aportado por las maltas.', 'images/ipa.png', 190, 51, 5, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `id_comentario` int(11) NOT NULL,
+  `id_cerveza` int(11) NOT NULL,
+  `contenido` varchar(120) NOT NULL,
+  `puntuacion` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `id_usuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id_comentario`, `id_cerveza`, `contenido`, `puntuacion`, `fecha`, `id_usuario`) VALUES
+(1, 1, 'TEST', 5, '2020-11-10', 5),
+(2, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(3, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(4, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(5, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(6, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(7, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(8, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(9, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(10, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(11, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(14, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(15, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2),
+(16, 1, 'TESssssssssssssssssT', 5, '2020-11-10', 2);
 
 -- --------------------------------------------------------
 
@@ -118,6 +154,14 @@ ALTER TABLE `cerveza`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `id_cerveza` (`id_cerveza`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -131,13 +175,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -154,6 +204,13 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `cerveza`
   ADD CONSTRAINT `cerveza_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_cerveza`) REFERENCES `cerveza` (`id_cerveza`),
+  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
