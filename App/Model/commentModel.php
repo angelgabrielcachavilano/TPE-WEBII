@@ -22,14 +22,14 @@ class commentModel{
     }
 
     public function getByID($id_comentario) {
-        $query = $this->db->prepare('SELECT * FROM comentario INNER JOIN usuario ON usuario.id_user= comentario.id_usuario WHERE comentario.id_cerveza = ?');
+        $query = $this->db->prepare('SELECT comentario.*,usuario.email FROM comentario INNER JOIN usuario ON usuario.id_user= comentario.id_usuario WHERE comentario.id_comentario = ?');
         $query->execute(array($id_comentario));
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    public function getComments($id_cerveza){
-        $query = $this->db->prepare('SELECT * FROM comentario INNER JOIN usuario  ON comentario.id_usuario = usuario.id_user WHERE id_cerveza = ? ');
-        $query->execute(array($id_cerveza));
+    public function getComments($id_comentario){
+        $query = $this->db->prepare('SELECT comentario.*,usuario.email FROM comentario INNER JOIN usuario  ON comentario.id_usuario = usuario.id_user WHERE id_cerveza = ? ');
+        $query->execute(array($id_comentario));
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 }

@@ -21,8 +21,15 @@
     $r->addRoute("singIn", "POST", "userController", "singIn");
     $r->addRoute("logout", "GET", "userController", "logout");
     $r->addRoute("veryUser", "POST", "userController", "verifyUser");
-    $r->addRoute("contactanos", "GET", "userController", "contacto");
+    $r->addRoute("contactanos", "GET", "userController", "contacto"); // Cambiar nombre
 
+    //Admin
+    $r->addRoute("adminPanel", "GET", "userController", "listUsers");
+    $r->addRoute("setAdminStatus/:ID", "GET", "userController", "setAdminStatus");
+    $r->addRoute("deleteUser/:ID", "GET", "userController", "deleteUser");
+    $r->addRoute("deleteImage/:ID", "GET", "beerController", "deleteImage");
+
+    
     $r->addRoute("showBeer","GET","beerController","showBeer");
     $r->addRoute("showBeerDetail/:ID","GET","beerController","beerDetail");
     $r->addRoute("showAddBeer","GET","beerController","showAddBeer");
@@ -40,6 +47,8 @@
     $r->addRoute("showEditCategory/:ID","GET","categoryController","showEditCategory");
     $r->addRoute("editCategory/:ID","POST","categoryController","editCategory");
     $r->addRoute("deleteCategory/:ID","GET","categoryController","deleteCategory");
+
+
 
     
  

@@ -9,10 +9,12 @@ $router = new Router();
 
 // public
 $router->addRoute('comentario/:ID', 'GET', 'commentApiController', 'getByID');
+$router->addRoute('comentarios/:ID', 'GET', 'commentApiController', 'getComments');
+
 // solo registrados
-$router->addRoute('comentarios/:ID', 'POST', 'commentApiController', 'addComment');
+$router->addRoute('comentarios', 'POST', 'commentApiController', 'addComment');
 //Metodo solo del admin a.k.a adminMethods
-$router->addRoute('comentarios/:ID', 'DELETE', 'commentApiController', 'deleteComment');
+$router->addRoute('deleteComentario/:ID', 'DELETE', 'commentApiController', 'deleteComment');
 
 
 $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 

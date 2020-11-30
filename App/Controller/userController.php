@@ -117,29 +117,61 @@ class userController{
         $this->view->viewRegister($error);
     }
     // admin method
-    public function listUsers() {
-        $users = $this->userModel->getUsers();
-        // $this->view->viewListUsers($users);
+    function listUsers() {
+        if(ISADMIN){
+
+            $users = $this->model->getUsers();
+            $this->view->viewListUsers($users);
+            die();
+        }
+        header("Location: " . HOME);
+
+
     }
 
     // admin method
-    public function setAdminStatus() {
-        if ($_GET['id'] !== ADMIN_ID) {
-            $id = (int) $_GET['id'];
-            $newStatus = false;
+    function setAdminStatus($params = null) {
+        $id_user= $params[':ID'];
+        if(ISADMIN){
+            $user = $this->model->getUserById($id_user);
+         
+                if($user){
+                 
+                     if ($id_user !== ADMIN_ID) {
+                        $newStatus = false;
+                        
+                        if($user->admin == false){
+                            $newStatus = true;
+                            
+                        }
+                       
 
-            if($_GET['method'] === 'darpermisos') {
-                $newStatus = true;
-            }
-
-            $this->userModel->setStatus($id, $newStatus);
+                          $this->model->setStatus( $newStatus,$id_user);
+                         
+                          header('Location: '.BASE_URL.'/adminPanel');
+                          die();
+                     }
+                }
+            header('Location: '.BASE_URL.'/adminPanel');
+            die();
         }
-        header('Location: '.BASE_URL.'/admin/usuarios');
+        header("Location: " . HOME);
+
     }
-    public function deleteUser() {
-        if (isset($_GET['id']) === true && $_GET['id'] !== ADMIN_ID) {
-            $this->userModel->deleteUser($_GET['id']);
+    function deleteUser($params = null) {
+        $id_user= $params[':ID'];
+        if(ISADMIN){
+           
+            $user = $this->model->getUserById($id_user);
+          
+             if ($user && $id_user !== ADMIN_ID) {
+                 $this->model->deleteUser($id_user);
+                 
+             }
+             header('Location: '.BASE_URL.'adminPanel');
+             die();
         }
-        header('Location: '.BASE_URL.'admin/usuarios');
+         header("Location: " . HOME);
+
     }
 }

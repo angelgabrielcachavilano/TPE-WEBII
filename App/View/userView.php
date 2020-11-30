@@ -36,7 +36,9 @@ class userView{
 
         }
         header("Location: " . HOME);
-
-
+    }
+    public function viewListUsers($users){
+        $this->smarty->assign('listUsers', $users);
+        $this->smarty->display('templates/admin/listUsers.tpl');
     }
 }

@@ -66,7 +66,8 @@
                     <td>
                         <a href="{BASE_URL}showBeerDetail/{$beer->id_cerveza}" class="btn btn-info ">Ver comentarios</a>
                     </td>
-                    <td> <a href="{BASE_URL}showEditBeer/{$beer->id_cerveza}" class="btn btn-warning "> editar </a> - <a href="{BASE_URL}deleteBeer/{$beer->id_cerveza}" class="btn btn-danger "> borrar </a>
+                    <td> <a href="{BASE_URL}showEditBeer/{$beer->id_cerveza}" class="btn btn-warning "> editar cerveza </a> - <a href="{BASE_URL}deleteBeer/{$beer->id_cerveza}" class="btn btn-danger "> borrar cerveza</a> - <a href="{BASE_URL}deleteImage/{$beer->id_cerveza}"
+                            class="btn btn-danger "> Eliminar imagen </a>
                 </tr>
                 {/foreach}
             </tbody>

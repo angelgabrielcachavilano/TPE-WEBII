@@ -19,6 +19,7 @@ class commentApiController  extends baseAPIController
 
         $id = $params[':ID'];
         $comentario = $this->model->getByID($id);
+      
         if (!empty($comentario)) {
             $this->view->response($comentario, 200);
         } else {
@@ -26,24 +27,32 @@ class commentApiController  extends baseAPIController
         }
     }
 
-    function addComment($params = null)
+    function getComments($params = null){
+        $id = $params[':ID'];
+        $comments =$this->model->getComments($id);
+        $this->view->response($comments,200);
+    }
+
+
+    function addComment()
     {
         $body = $this->getData();
         if (LOGUEADO === true) {
 
             if (isset($body)) {
                 if ($body->contenido != '' && $body->puntuacion != '' && $body->fecha != '' && $body->id_cerveza != '' && $body->id_usuario != '') {
-                    $idComment =  $this->model->insertComment($body->contenido, $body->puntuacion, $body->fecha, $body->id_cerveza, $body->id_usuario);
+                    $idComment =  $this->model->insertComment($body->contenido,$body->puntuacion,$body->fecha, $body->id_cerveza, $body->id_usuario);
                 } else {
                     $this->view->response([], 400); // Bad Request
                 }
             } else {
-                $this->view->response([], 422); // Unprocessable Entity
+                $this->view->response([], 400); // Unprocessable Entity
             }
 
+           
 
             if (!empty($idComment)) {
-                $this->view->response($this->model->getByID($idComment), 200);
+                $this->view->response($this->model->getByID($idComment), 201);
             } else {
                 $this->view->response("El comentario no se pudo insertar", 404);
             }
@@ -67,6 +76,7 @@ class commentApiController  extends baseAPIController
                     $this->view->response("El comentario con el id id=$comentario_id no existe",404);
                 }
             }
+
         } else {
             $this->view->response([], 403); // forbidden
         }
