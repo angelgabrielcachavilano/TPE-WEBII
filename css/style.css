@@ -324,3 +324,13 @@ td {
 
 
 /* FIN CARTA */
+
+.botonPaginado {
+    text-align: center;
+    color: white;
+    border: 1px solid pink;
+    border-radius: 3px;
+    margin-right: 5px;
+    padding-right: 5px;
+    background-color: black;
+}

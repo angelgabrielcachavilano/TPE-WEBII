@@ -86,7 +86,21 @@
             </tbody>
 
         </table>
+
     </div>
 </div>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {for $var= 1 to $paginas}
+                <li class="page-item "><a class="botonPaginado" href="{BASE_URL}showBeer/{$var}"> {$var} </a></li>
+                {/for}
+            </ul>
+        </nav>
+    </div>
+    <div class="col-4"></div>
 
+</div>
 {include file='templates/public/footer.tpl'}

@@ -13,7 +13,16 @@ class beerController
     // private $helper;
     private $categoryModel;
     private $userModel;
-  
+
+    // Variables de paginado
+    private $paginaActual;
+    private $totalDePag;
+    private $totalResultados;
+    private $resultadosPorPagina;
+    private $indice;
+    //Fin de variables de paginado
+
+
     function __construct()
     {
         // $this->helper = new authHelper;
@@ -24,10 +33,18 @@ class beerController
         $this->model = new beerModel();
         $this->view = new beerView();
 
-     
+        //Paginado
+        $this->resultadosPorPagina = 4;
+        $this->indice = 0;
+        $this->paginaActual = 1;
+        $this->calcularPaginas();
     }
 
-   
+    function calcularPaginas(){
+        $this->totalResultados = $this->model->getAllPagination();
+        $this->totalDePag = ceil($this->totalResultados/ $this->resultadosPorPagina);
+        
+    }
 
 
     function beerDetail($params = null)
@@ -61,8 +78,28 @@ class beerController
     }
 
 
-    function showBeer()
+    function showBeer($params = null)
     {
+        $pag = $params[':PAG'];
+
+        if (isset($pag)) {
+            $paginaGet = $pag;
+        } else {
+            $paginaGet = 1;
+        }
+        // // si nos mandan la pagina
+        if (isset($paginaGet)) {
+            //     //si el valor es numerico
+            if ($paginaGet >= 1 && $paginaGet <= $this->totalDePag) {
+                $this->paginaActual = $paginaGet;
+                $this->indice = ($this->paginaActual - 1) * ($this->resultadosPorPagina);
+             
+            } else {
+                echo "No existe esa pagina";
+            }
+        } else {
+            echo "error al mostrar la pagina";
+        }
 
         $beers = $this->model->getAll();
         // Va a cambiar con el login
@@ -96,9 +133,11 @@ class beerController
 
 
         }
-     
-      
-        $this->view->showBeer($beers, $categories, $viewFile);
+        
+
+        $newBeers = $this->model->paginationValue($this->indice, $this->resultadosPorPagina);
+        
+        $this->view->showBeer($newBeers, $categories, $viewFile,$this->totalDePag);
     }
 
     function fineDup($id_category, $categories)
@@ -114,11 +153,20 @@ class beerController
 
     function showBeerByCategories()
     {
+       
+
+   
+
+
         $id_category = $_POST['categorias'];
+       
         if ($id_category === 'all') {
-            $beers = $this->model->getAll();
+            header('Location: ' . BASE_URL . 'showBeer/1');
+            die();
+            // $beers = $this->model->getAll();
         } else if ($id_category !== 'all') {
             $beers = $this->model->getBeerByCategories($id_category);
+           
         }
 
         $categories = array();
@@ -150,9 +198,11 @@ class beerController
         } else {
             $viewFile = 'templates/public/beers.tpl';
         }
-
         
-        $this->view->showBeer($beers, $categories, $viewFile);
+  
+
+        $totalDePag = 1;
+        $this->view->showBeer($beers, $categories, $viewFile,$totalDePag);
     }
     function showEditBeer($params = null)
     {
@@ -297,6 +347,8 @@ class beerController
     }
 
     function filter($params = null){
+     
+
         $value = $_POST['value'];
         $type = $_POST['type'];             
         
@@ -305,27 +357,6 @@ class beerController
 
         $beers = $this->model->filter($value,$type);
 
-        
-
-        // switch ($type) {
-        //     case 'nombre':
-        //         break;
-        //     case 'descripcion':
-        //         echo "i es igual a 1";
-        //         break;
-        //     case 'precio':
-        //         echo "i es igual a 2";
-        //         break;
-        //     case 'ibu':
-        //         echo "i es igual a 2";
-        //     break;   
-        //     case 'alcohol':
-        //         echo "i es igual a 2";
-        //     break;   
-        //     default:
-        //      $beers = $this->model->filter($value);
-
-        // }
 
 
 
@@ -346,7 +377,7 @@ class beerController
             };
         }
       
-        $this->view->showBeer($beers, $categories, $viewFile);
+        $this->view->showBeer($beers, $categories, $viewFile,$this->totalDePag);
 
     }
 

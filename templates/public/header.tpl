@@ -33,7 +33,7 @@
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
                             <a class="nav-link text-danger" href="{BASE_URL}home">HOME </a>
-                            <a class="nav-link text-danger" href="{BASE_URL}showBeer">CERVEZAS</a>
+                            <a class="nav-link text-danger" href="{BASE_URL}showBeer/1">CERVEZAS</a>
                             <a class="nav-link text-danger" href="{BASE_URL}showCategories">TIPOS</a>
                             <a class="nav-link text-danger" href="{BASE_URL}contactanos">CONTACTANOS</a> {if ISADMIN === true}
                             <a class="nav-link text-danger" href="{BASE_URL}adminPanel">PANEL ADMIN</a> {/if} {if LOGUEADO === true}
