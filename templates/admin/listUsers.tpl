@@ -1,6 +1,6 @@
 {include file='templates/public/header.tpl'}
-<h4>Usuarios</h4>
-<table class="table table-bordered">
+<h1 class="titulopp col-12 mt-4">Usuarios</h1>
+<table class="table table-bordered textopp col-12">
     <thead>
         <th scope="col">id_usuario</th>
         <th scope="col">Email</th>
@@ -15,8 +15,9 @@
             <td>{$user->admin}</td>
             <td>
                 {if $user->id_user != ADMIN_ID} {if $user->admin == 1}
-                <a href='{BASE_URL}setAdminStatus/{$user->id_user}'>Quitar admin</a> {else}
-                <a href='{BASE_URL}setAdminStatus/{$user->id_user}'>Agregar admin</a> {/if} | <a href='{BASE_URL}deleteUser/{$user->id_user}'>Borrar Usuario</a> {else} No puedes modificar al gran maestro :v {/if}
+                <a href='{BASE_URL}setAdminStatus/{$user->id_user}' class="btn btn-success">Quitar admin</a> {else}
+                <a href='{BASE_URL}setAdminStatus/{$user->id_user}' class="btn btn-warning">Agregar admin</a> {/if} | <a href='{BASE_URL}deleteUser/{$user->id_user}' class="btn btn-danger">Borrar Usuario</a> {else} No puedes modificar al gran maestro
+                :v {/if}
             </td>
         </tr>
         {/foreach}

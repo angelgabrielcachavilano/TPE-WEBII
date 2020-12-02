@@ -16,6 +16,7 @@ class beerView{
        
         $this->smarty->assign('beers',$beers);
         $this->smarty->assign('categories',$categories);
+
         $this->smarty->display($viewFile);
     }
 

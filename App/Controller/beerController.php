@@ -13,6 +13,7 @@ class beerController
     // private $helper;
     private $categoryModel;
     private $userModel;
+  
     function __construct()
     {
         // $this->helper = new authHelper;
@@ -22,7 +23,12 @@ class beerController
         $this->commentModel = new commentModel();
         $this->model = new beerModel();
         $this->view = new beerView();
+
+     
     }
+
+   
+
 
     function beerDetail($params = null)
     {
@@ -90,7 +96,8 @@ class beerController
 
 
         }
-
+       
+      
         $this->view->showBeer($beers, $categories, $viewFile);
     }
 
@@ -286,4 +293,31 @@ class beerController
         }
         header('Location: ' . BASE_URL . 'showBeer');
     }
+
+    function filter($params = null){
+        $value = $_POST['value'];
+        
+        $beers = $this->model->filter($value);
+
+        if (ISADMIN) {
+
+            $viewFile = 'templates/admin/beers/beers.tpl';
+        } else {
+            $viewFile = 'templates/public/beers.tpl';
+        }
+       
+        $categories = array();
+
+
+        foreach ($beers as $beer) {
+
+            if ($this->fineDup($beer->id_categoria, $categories) === false) {
+                $categories[] = ['id_categoria' => $beer->id_categoria, 'nombre' => $beer->categoria_nombre];
+            };
+        }
+
+        $this->view->showBeer($beers, $categories, $viewFile);
+
+    }
+
 }

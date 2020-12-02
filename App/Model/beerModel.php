@@ -12,8 +12,10 @@ class beerModel{
     function getAll(){
         $query = $this->db->prepare('SELECT cerveza.*,categoria.*, categoria.nombre AS categoria_nombre , cerveza.nombre AS nombre FROM cerveza INNER JOIN categoria ON cerveza.id_categoria = categoria.id_categoria');
         $query->execute();
+        // $query->rowCount();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+
 
     function getBeerByCategories($id_category){
         // $query = $this->db->prepare('SELECT * FROM cerveza GROUP BY cerveza.id_cerveza ORDER BY id_categoria=? DESC');
@@ -39,8 +41,15 @@ class beerModel{
         return $query->execute(array($name, $description, $image, $price, $ibu, $alcohol, $category_id));
     }
 
-    public function deleteBeer($id) {
+    function deleteBeer($id) {
         $query = $this->db->prepare('DELETE FROM cerveza WHERE id_cerveza = ?');
         $query->execute(array($id));
+    }
+
+    function filter($value){
+        $query = $this->db->prepare('SELECT cerveza.*,categoria.*, categoria.nombre AS categoria_nombre , cerveza.nombre AS nombre FROM cerveza INNER JOIN categoria ON cerveza.id_categoria = categoria.id_categoria WHERE cerveza.nombre LIKE ?');
+        $query->execute(array("%".$value."%"));
+        return $query->fetchAll(PDO::FETCH_OBJ);
+
     }
 }

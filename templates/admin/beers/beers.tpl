@@ -43,7 +43,7 @@
                     <th scope="col">Ibu</th>
                     <th scope="col">Alcohol</th>
                     <th scope="col">Info</th>
-                    <th scope="col">???</th>
+                    <th scope="col">Comentarios</th>
 
                     <th scope="col" class="adm">ADMIN MOD</th>
 
@@ -71,7 +71,9 @@
                 </tr>
                 {/foreach}
             </tbody>
+
         </table>
     </div>
 </div>
+
 {include file='templates/public/footer.tpl'}

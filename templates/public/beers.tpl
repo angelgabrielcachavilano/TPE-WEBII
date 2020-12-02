@@ -27,7 +27,10 @@
         </div>
     </div>
     <div class="col-4">
-
+        <form action="{BASE_URL}filter" method="POST">
+            <input type="text" placeholder="Busque por nombre" name="value">
+            <button class="btn btn-info">Filtrar</button>
+        </form>
     </div>
 </div>
 
@@ -73,7 +76,9 @@
                 </tr>
                 {/foreach}
             </tbody>
+
         </table>
+
     </div>
 </div>
 {include file='templates/public/footer.tpl'}

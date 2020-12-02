@@ -21,23 +21,28 @@
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-light rounded-pill">
                     <!-- Image and text -->
+
                     <nav class="navbar navbar-light ">
                         <a class="navbar-brand" href="{BASE_URL}home">
                             <img src="images/logo.png" width="100" height="100" class="d-inline-block align-top" alt="" loading="lazy">
                         </a>
                     </nav>
-
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
                             <a class="nav-link text-danger" href="{BASE_URL}home">HOME </a>
                             <a class="nav-link text-danger" href="{BASE_URL}showBeer">CERVEZAS</a>
                             <a class="nav-link text-danger" href="{BASE_URL}showCategories">TIPOS</a>
-                            <a class="nav-link text-danger" href="{BASE_URL}contactanos">CONTACTANOS</a>
-
+                            <a class="nav-link text-danger" href="{BASE_URL}contactanos">CONTACTANOS</a> {if ISADMIN === true}
+                            <a class="nav-link text-danger" href="{BASE_URL}adminPanel">PANEL ADMIN</a> {/if} {if LOGUEADO === true}
+                            <a class="nav-link  btn btn-warning  " href="{BASE_URL}logout">LOGOUT</a> {/if} {if LOGUEADO === false}
+                            <a class="nav-link badge badge-pill badge-success logou " href="{BASE_URL}login">LOGIN</a> {/if}
                         </div>
-                        {if LOGUEADO === true}
-                        <a class="badge badge-pill badge-warning logou" href="{BASE_URL}logout">LOGOUT</a> {/if} {if LOGUEADO === false}
-                        <a class="badge badge-pill badge-success logou" href="{BASE_URL}login">LOGIN</a> {/if}
+
+
+
                     </div>
                 </nav>
             </div>
