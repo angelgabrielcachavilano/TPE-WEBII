@@ -1,9 +1,7 @@
 <?php
-
     require_once ('./libs/Smarty.class.php');
 
     class categoryView{
-
         private $smarty;
 
         function __construct(){

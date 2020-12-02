@@ -1,5 +1,4 @@
 <?php
-
     require_once './App/Model/categoryModel.php';
     require_once './App/View/categoryView.php';
     require_once './libs/helpers/authHelper.php';
@@ -30,6 +29,7 @@
         function showCategoryById($params = null){
             $id_category = $params[':ID'];  
             $category = $this->model->getById($id_category);
+        
             $this->view->showCategory($category);
         }
 
@@ -40,7 +40,7 @@
                 header('Location: '.BASE_URL.'HOME');
             }
         }
-        
+
         function addCategory() {
             if(ISADMIN){
                 if($_POST['nombre'] != '' && $_POST['descripcion'] != ''){
@@ -55,7 +55,7 @@
             $this->view->showAddCategory();
             }else{
                 header('Location: '.BASE_URL.'HOME');
-            }    
+            }
         }
 
         function showEditCategory($params = null){
@@ -75,7 +75,11 @@
                 // nombre, descripcion, imagen, precio, ibu, alcohol, id_categoria
                 if (isset($_POST['nombre']) != '') {
                     // Insertamos una nueva cerveza
-                    $this->model->editCategory( $_POST['nombre'], $_POST['descripcion'], $id_category );
+                    $this->model->editCategory(
+                        $_POST['nombre'],
+                        $_POST['descripcion'],
+                        $id_category,
+                    );
                     header('Location: '.BASE_URL.'showCategories');
                 } 
             }
@@ -91,6 +95,7 @@
             header('Location: '.BASE_URL.'showCategories');
             }else{
                 header('Location: '.BASE_URL.'HOME');
+
             }
         }
     }

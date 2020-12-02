@@ -43,23 +43,34 @@
             <tbody>
                 {foreach $beers as $beer}
 
-                <tr>
-                    <td class="nombre">{$beer->nombre}</td>
-                    <td>{$beer->descripcion}</td>
-                    <td><img src="{BASE_URL}{$beer->imagen}" alt="" height="200px"></td>
-                    <td>{$beer->precio}</td>
-                    <td class="ibu">{$beer->ibu}</td>
-                    <td class="alcohol">{$beer->alcohol}</td>
-                    <td>
-                        <a href="{BASE_URL}showCategory/{$beer->id_categoria}" class="btn btn-info ">Ver categoria</a>
-                    </td>
-                    <td>
-                        <a href="{BASE_URL}showBeerDetail/{$beer->id_cerveza}" class="btn btn-info ">Ver comentarios</a>
-                    </td>
-                    <td> <a href="{BASE_URL}showEditBeer/{$beer->id_cerveza}" class="btn btn-warning "> editar cerveza </a> - <a href="{BASE_URL}deleteBeer/{$beer->id_cerveza}" class="btn btn-danger "> borrar cerveza</a> - <a href="{BASE_URL}deleteImage/{$beer->id_cerveza}"
-                            class="btn btn-danger "> Eliminar imagen </a>
-                </tr>
+                    <tr>
+                        <td class="nombre">{$beer->nombre}</td>
+                        <td>{$beer->descripcion}</td>
+                        <td><img src="{BASE_URL}{$beer->imagen}" alt="" height="200px"></td>
+                        <td>{$beer->precio}</td>
+                        <td class="ibu">{$beer->ibu}</td>
+                        <td class="alcohol">{$beer->alcohol}</td>
+                        <td>
+                            <a href="{BASE_URL}showCategory/{$beer->id_categoria}" class="btn btn-info ">Ver categoria</a>
+                        </td>
+                        <td>
+                            <a href="{BASE_URL}showBeerDetail/{$beer->id_cerveza}" class="btn btn-info ">Ver comentarios</a>
+                        </td>
+                        <td> <a href="{BASE_URL}showEditBeer/{$beer->id_cerveza}" class="btn btn-warning "> editar cerveza </a> - <a href="{BASE_URL}deleteBeer/{$beer->id_cerveza}" class="btn btn-danger "> borrar cerveza</a> - <a href="{BASE_URL}deleteImage/{$beer->id_cerveza}"
+                                class="btn btn-danger "> Eliminar imagen </a>
+                    </tr>
+
                 {/foreach}
+
+                <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            {foreach $paginas as $pagina}
+                                <li class="page-item"><a class="page-link" href="#"> </a></li>
+                            {/foreach}
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                </nav>
             </tbody>
         </table>
     </div>

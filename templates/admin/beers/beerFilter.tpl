@@ -1,6 +1,6 @@
 {include file='templates/public/header.tpl'}
 
-<h1 class="titulopp mt-3 mb-3">Nuestras Cervezas</h1>
+<h1 class="titulopp mt-3 mb-3"></h1>
 <div class="row">
 
     <div class="col-4"></div>
@@ -10,8 +10,7 @@
             <form action="{BASE_URL}showBeerByCategories/" method="POST">
                 <select class="form-control selectbeers" name="categorias" id="exampleSelect1">
                     {foreach $categories as $category}
-                    <option hidden selected>Selecciona una categoria</option>
-                    <option class="selectbeers" value="{$category['id_categoria']}">{$category['nombre']}</option>                    
+                    <option class="selectbeers" value="{$category['id_categoria']}">{$category['nombre']}</option>
                     {/foreach}
                     <option class="selectbeers" value="all">Ver todas</option>
             </select>
@@ -36,14 +35,15 @@
                     <th scope="col">Ibu</th>
                     <th scope="col">Alcohol</th>
                     <th scope="col">Info</th>
-                    <th scope="col">Comentarios</th>
                     <th scope="col" class="adm">ADMIN MOD</th>
+
                 </tr>
             </thead>
             <tbody>
                 {foreach $beers as $beer}
 
                 <tr>
+
                     <td class="nombre">{$beer->nombre}</td>
                     <td>{$beer->descripcion}</td>
                     <td><img src="{BASE_URL}{$beer->imagen}" alt="" height="200px"></td>
@@ -53,16 +53,12 @@
                     <td>
                         <a href="{BASE_URL}showCategory/{$beer->id_categoria}" class="btn btn-info ">Ver categoria</a>
                     </td>
-                    <td>
-                        <a href="{BASE_URL}showBeerDetail/{$beer->id_cerveza}" class="btn btn-info ">Ver comentarios</a>
-                    </td>
-                    <td> <a href="{BASE_URL}showEditBeer/{$beer->id_cerveza}" class="btn btn-warning "> editar cerveza </a> - <a href="{BASE_URL}deleteBeer/{$beer->id_cerveza}" class="btn btn-danger "> borrar cerveza</a> - <a href="{BASE_URL}deleteImage/{$beer->id_cerveza}"
-                            class="btn btn-danger "> Eliminar imagen </a>
+                    <td> <a href="{BASE_URL}showEditBeer/{$beer->id_cerveza}" class="btn btn-warning "> editar </a> - <a href="{BASE_URL}deleteBeer/{$beer->id_cerveza}" class="btn btn-danger "> borrar </a>
+
                 </tr>
                 {/foreach}
             </tbody>
         </table>
     </div>
 </div>
-
 {include file='templates/public/footer.tpl'}
