@@ -27,6 +27,19 @@
         </div>
     </div>
     <div class="col-4">
+        <form action="{BASE_URL}filter" method="POST">
+            <select name="type" class="form-control selectbeers">
+                <option hidden selected>Selecciona un tipo</option>
+                <option value="nombre">Nombre</option>
+                <option value="descripcion">Descripcion</option>
+                <option value="precio">Precio</option>
+                <option value="ibu">Ibu</option>
+                <option value="alcohol">Alcohol</option>
+
+            </select>
+            <input type="text" class="form-control selectbeers" placeholder="Ingrese dato aqui" name="value">
+            <button class="btn btn-info">Filtrar</button>
+        </form>
         <a href="showAddBeer" class="btn btn-info ml-5 mt-4">Agregar una nueva cerveza</a>
     </div>
 </div>

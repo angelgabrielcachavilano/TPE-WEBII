@@ -38,7 +38,7 @@
                             <a class="nav-link text-danger" href="{BASE_URL}contactanos">CONTACTANOS</a> {if ISADMIN === true}
                             <a class="nav-link text-danger" href="{BASE_URL}adminPanel">PANEL ADMIN</a> {/if} {if LOGUEADO === true}
                             <a class="nav-link  btn btn-warning  " href="{BASE_URL}logout">LOGOUT</a> {/if} {if LOGUEADO === false}
-                            <a class="nav-link badge badge-pill badge-success logou " href="{BASE_URL}login">LOGIN</a> {/if}
+                            <a class="nav-link btn btn-success  logou " href="{BASE_URL}login">LOGIN</a> {/if}
                         </div>
 
 

@@ -28,7 +28,16 @@
     </div>
     <div class="col-4">
         <form action="{BASE_URL}filter" method="POST">
-            <input type="text" placeholder="Busque por nombre" name="value">
+            <select name="type" class="form-control selectbeers">
+                <option hidden selected>Selecciona un tipo</option>
+                <option value="nombre">Nombre</option>
+                <option value="descripcion">Descripcion</option>
+                <option value="precio">Precio</option>
+                <option value="ibu">Ibu</option>
+                <option value="alcohol">Alcohol</option>
+
+            </select>
+            <input type="text" class="form-control selectbeers" placeholder="Ingrese dato aqui" name="value">
             <button class="btn btn-info">Filtrar</button>
         </form>
     </div>
