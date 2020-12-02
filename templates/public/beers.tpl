@@ -10,6 +10,8 @@
             <form action="{BASE_URL}showBeerByCategories/" method="POST">
                 <select class="form-control selectbeers" name="categorias" id="exampleSelect1">
                     {foreach $categories as $category}
+                    <option hidden selected>Selecciona una categoria</option>
+
                     <option class="selectbeers" value="{$category['id_categoria']}">{$category['nombre']}</option>
                     {/foreach}
                     <option class="selectbeers" value="all">Ver todas</option>
@@ -25,7 +27,10 @@
         </div>
     </div>
     <div class="col-4">
-
+        <form action="{BASE_URL}filter" method="POST">
+            <input type="text" placeholder="Busque por nombre" name="value">
+            <button class="btn btn-info">Filtrar</button>
+        </form>
     </div>
 </div>
 
@@ -44,6 +49,7 @@
                     <th scope="col">Info</th>
                     {/if}
                     <th scope="col">Categoria</th>
+                    <th scope="col">Comentarios</th>
 
                 </tr>
             </thead>
@@ -64,10 +70,15 @@
                     <td>
                         <a href="{BASE_URL}showCategory/{$beer->id_categoria}" class="btn btn-danger ">Ver categoria</a>
                     </td>
+                    <td>
+                        <a href="{BASE_URL}showBeerDetail/{$beer->id_cerveza}" class="btn btn-info ">Ver comentarios</a>
+                    </td>
                 </tr>
                 {/foreach}
             </tbody>
+
         </table>
+
     </div>
 </div>
 {include file='templates/public/footer.tpl'}

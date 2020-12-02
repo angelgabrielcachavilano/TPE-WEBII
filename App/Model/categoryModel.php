@@ -23,6 +23,7 @@ class categoryModel{
     function addCategory($name, $description){
         $query = $this->db->prepare('INSERT INTO categoria(nombre, descripcion) VALUES(?,?)');
         $query->execute(array($name, $description));
+      
     }
     function editCategory( $name, $description, $id){
         

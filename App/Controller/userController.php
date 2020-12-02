@@ -107,5 +107,62 @@ class userController{
         }
         $this->view->viewRegister($error);
     }
+    // admin method
+    function listUsers() {
+        if(ISADMIN){
 
+            $users = $this->model->getUsers();
+            $this->view->viewListUsers($users);
+            die();
+        }
+        header("Location: " . HOME);
+
+
+    }
+
+    // admin method
+    function setAdminStatus($params = null) {
+        $id_user= $params[':ID'];
+        if(ISADMIN){
+            $user = $this->model->getUserById($id_user);
+         
+                if($user){
+                 
+                     if ($id_user !== ADMIN_ID) {
+                        $newStatus = false;
+                        
+                        if($user->admin == false){
+                            $newStatus = true;
+                            
+                        }
+                       
+
+                          $this->model->setStatus( $newStatus,$id_user);
+                         
+                          header('Location: '.BASE_URL.'/adminPanel');
+                          die();
+                     }
+                }
+            header('Location: '.BASE_URL.'/adminPanel');
+            die();
+        }
+        header("Location: " . HOME);
+
+    }
+    function deleteUser($params = null) {
+        $id_user= $params[':ID'];
+        if(ISADMIN){
+           
+            $user = $this->model->getUserById($id_user);
+          
+             if ($user && $id_user !== ADMIN_ID) {
+                 $this->model->deleteUser($id_user);
+                 
+             }
+             header('Location: '.BASE_URL.'adminPanel');
+             die();
+        }
+         header("Location: " . HOME);
+
+    }
 }
