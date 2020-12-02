@@ -96,7 +96,7 @@ class beerController
 
 
         }
-       
+     
       
         $this->view->showBeer($beers, $categories, $viewFile);
     }
@@ -150,6 +150,8 @@ class beerController
         } else {
             $viewFile = 'templates/public/beers.tpl';
         }
+
+        
         $this->view->showBeer($beers, $categories, $viewFile);
     }
     function showEditBeer($params = null)
@@ -296,8 +298,36 @@ class beerController
 
     function filter($params = null){
         $value = $_POST['value'];
+        $type = $_POST['type'];             
         
-        $beers = $this->model->filter($value);
+      
+
+
+        $beers = $this->model->filter($value,$type);
+
+        
+
+        // switch ($type) {
+        //     case 'nombre':
+        //         break;
+        //     case 'descripcion':
+        //         echo "i es igual a 1";
+        //         break;
+        //     case 'precio':
+        //         echo "i es igual a 2";
+        //         break;
+        //     case 'ibu':
+        //         echo "i es igual a 2";
+        //     break;   
+        //     case 'alcohol':
+        //         echo "i es igual a 2";
+        //     break;   
+        //     default:
+        //      $beers = $this->model->filter($value);
+
+        // }
+
+
 
         if (ISADMIN) {
 
@@ -315,7 +345,7 @@ class beerController
                 $categories[] = ['id_categoria' => $beer->id_categoria, 'nombre' => $beer->categoria_nombre];
             };
         }
-
+      
         $this->view->showBeer($beers, $categories, $viewFile);
 
     }

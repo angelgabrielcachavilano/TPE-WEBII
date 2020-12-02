@@ -10,7 +10,7 @@ class beerModel{
     }
 
     function getAll(){
-        $query = $this->db->prepare('SELECT cerveza.*,categoria.*, categoria.nombre AS categoria_nombre , cerveza.nombre AS nombre FROM cerveza INNER JOIN categoria ON cerveza.id_categoria = categoria.id_categoria');
+        $query = $this->db->prepare('SELECT cerveza.*,categoria.*, categoria.nombre AS categoria_nombre , cerveza.nombre AS nombre ,categoria.descripcion AS cat_desc, cerveza.descripcion AS descripcion FROM cerveza INNER JOIN categoria ON cerveza.id_categoria = categoria.id_categoria');
         $query->execute();
         // $query->rowCount();
         return $query->fetchAll(PDO::FETCH_OBJ);
@@ -19,7 +19,7 @@ class beerModel{
 
     function getBeerByCategories($id_category){
         // $query = $this->db->prepare('SELECT * FROM cerveza GROUP BY cerveza.id_cerveza ORDER BY id_categoria=? DESC');
-        $query = $this->db->prepare('SELECT cerveza.*,categoria.*, categoria.nombre AS categoria_nombre , cerveza.nombre AS nombre FROM cerveza INNER JOIN categoria ON cerveza.id_categoria = categoria.id_categoria ORDER BY cerveza.id_categoria = ? DESC');
+        $query = $this->db->prepare('SELECT cerveza.*,categoria.*, categoria.nombre AS categoria_nombre , cerveza.nombre AS nombre,categoria.descripcion AS cat_desc, cerveza.descripcion AS descripcion FROM cerveza INNER JOIN categoria ON cerveza.id_categoria = categoria.id_categoria ORDER BY cerveza.id_categoria = ? DESC');
 
         $query->execute(array($id_category));
         return $query->fetchAll(PDO::FETCH_OBJ);
@@ -46,10 +46,16 @@ class beerModel{
         $query->execute(array($id));
     }
 
-    function filter($value){
-        $query = $this->db->prepare('SELECT cerveza.*,categoria.*, categoria.nombre AS categoria_nombre , cerveza.nombre AS nombre FROM cerveza INNER JOIN categoria ON cerveza.id_categoria = categoria.id_categoria WHERE cerveza.nombre LIKE ?');
+    function filter($value,$type){
+        
+        $query = $this->db->prepare("SELECT cerveza.*,categoria.*, categoria.nombre AS categoria_nombre, cerveza.nombre AS nombre,categoria.descripcion AS cat_desc, cerveza.descripcion AS descripcion FROM cerveza INNER JOIN categoria ON cerveza.id_categoria = categoria.id_categoria WHERE cerveza.$type LIKE ?");
         $query->execute(array("%".$value."%"));
+       
         return $query->fetchAll(PDO::FETCH_OBJ);
 
     }
+
+    //
+
+
 }
