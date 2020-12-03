@@ -34,8 +34,8 @@
                         <input type="hidden" name='idCerveza' value='{$beer->id_cerveza}' class="form-control" /> {if $user !== false}
                         <input type="hidden" name='idUsuario' value='{$user->id_user}' class="form-control" /> {/if}
                         <h4 class="form-group">Formulario de comentario</h4>
-                        <select name="puntuacion" class="form-control mb-2">
-                <option hidden selected>Selecciona un puntaje</option>
+                        <select name="puntuacion" class="form-control mb-2" required>
+                <option hidden selected>Selecciona un puntaje(Por defecto es 1)</option>
 
                 <option value="1">1</option>
                 <option value="2">2</option>

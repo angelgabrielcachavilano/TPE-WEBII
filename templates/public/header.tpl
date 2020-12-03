@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -32,13 +33,16 @@
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
                             <a class="nav-link text-danger" href="{BASE_URL}home">HOME </a>
-                            <a class="nav-link text-danger" href="{BASE_URL}showBeer">CERVEZAS</a>
+                            <a class="nav-link text-danger" href="{BASE_URL}showBeer/1">CERVEZAS</a>
                             <a class="nav-link text-danger" href="{BASE_URL}showCategories">TIPOS</a>
                             <a class="nav-link text-danger" href="{BASE_URL}contactanos">CONTACTANOS</a> {if ISADMIN === true}
                             <a class="nav-link text-danger" href="{BASE_URL}adminPanel">PANEL ADMIN</a> {/if} {if LOGUEADO === true}
                             <a class="nav-link  btn btn-warning  " href="{BASE_URL}logout">LOGOUT</a> {/if} {if LOGUEADO === false}
-                            <a class="nav-link badge badge-pill badge-success logou " href="{BASE_URL}login">LOGIN</a> {/if}
+                            <a class="nav-link btn btn-success  logou " href="{BASE_URL}login">LOGIN</a> {/if}
                         </div>
+
+
+
                     </div>
                 </nav>
             </div>

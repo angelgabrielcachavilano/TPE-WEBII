@@ -28,7 +28,16 @@
     </div>
     <div class="col-4">
         <form action="{BASE_URL}filter" method="POST">
-            <input type="text" placeholder="Busque por nombre" name="value">
+            <select name="type" class="form-control selectbeers">
+                <option hidden selected>Selecciona un tipo</option>
+                <option value="nombre">Nombre</option>
+                <option value="descripcion">Descripcion</option>
+                <option value="precio">Precio</option>
+                <option value="ibu">Ibu</option>
+                <option value="alcohol">Alcohol</option>
+
+            </select>
+            <input type="text" class="form-control selectbeers" placeholder="Ingrese dato aqui" name="value">
             <button class="btn btn-info">Filtrar</button>
         </form>
     </div>
@@ -57,6 +66,7 @@
                 {foreach $beers as $beer}
 
                 <tr>
+
                     <td class="nombre">{$beer->nombre}</td>
                     <td>{$beer->descripcion}</td>
                     <td><img src="{BASE_URL}{$beer->imagen}" alt="" height="200px"></td>
@@ -80,4 +90,19 @@
 
     </div>
 </div>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {for $var= 1 to $paginas}
+                <li class="page-item "><a class="botonPaginado" href="{BASE_URL}showBeer/{$var}"> {$var} </a></li>
+                {/for}
+            </ul>
+        </nav>
+    </div>
+    <div class="col-4"></div>
+
+</div>
+
 {include file='templates/public/footer.tpl'}
