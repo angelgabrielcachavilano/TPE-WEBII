@@ -1,8 +1,8 @@
 <?php
 
-require_once './App/Model/categoryModel.php';
-require_once './App/View/categoryView.php';
-require_once './libs/helpers/authHelper.php';
+require_once ('./App/Model/categoryModel.php');
+require_once ('./App/View/categoryView.php');
+require_once ('./libs/helpers/authHelper.php');
 class categoryController{
 
     private $model;

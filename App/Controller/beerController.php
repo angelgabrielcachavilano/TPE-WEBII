@@ -1,10 +1,10 @@
 <?php
 
-require_once './App/Model/beerModel.php';
-require_once './App/Model/categoryModel.php';
-require_once('./App/Model/commentModel.php');
-require_once './App/View/beerView.php';
-require_once './libs/helpers/authHelper.php';
+require_once ('./App/Model/beerModel.php');
+require_once ('./App/Model/categoryModel.php');
+require_once ('./App/Model/commentModel.php');
+require_once ('./App/View/beerView.php');
+require_once ('./libs/helpers/authHelper.php');
 class beerController
 {
 
@@ -58,9 +58,9 @@ class beerController
             $user = false;
         }
 
-        $item = $this->model->getBeerByID($id_beer);
+        $beer = $this->model->getBeerByID($id_beer);
 
-        if (isset($item) === true && isset($item->id_categoria) == true) {
+        if (isset($beer) === true && isset($beer->id_categoria) == true) {
 
             $comments = $this->commentModel->getComments($id_beer);
             if (count($comments) > 0) {
@@ -71,7 +71,7 @@ class beerController
                 }
             }
 
-            $this->view->showDetail($item, $comments, $user);
+            $this->view->showDetail($beer, $comments, $user);
         } else {
             header('Location: ' . BASE_URL);
         }
@@ -153,9 +153,6 @@ class beerController
 
     function showBeerByCategories()
     {
-       
-
-   
 
 
         $id_category = $_POST['categorias'];
@@ -178,18 +175,7 @@ class beerController
                 $categories[] = ['id_categoria' => $beer->id_categoria, 'nombre' => $beer->categoria_nombre];
             };
 
-            // for($i=0; $i<sizeof($categories);$i++){
-            //     $repeated = false;
-
-            //     if($categories[$i] === $beer->categoria_nombre){
-            //         $i=sizeof($categories);
-            //         $repeated = true;
-            //     }
-            // }
-            // if($repeated === false){
-            //     array_push( $categories,$beer->categoria_nombre);
-            // }
-
+    
 
 
         }

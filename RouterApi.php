@@ -2,7 +2,7 @@
 
 require_once ('./libs/RouterClass.php');
 require_once ('./api/commentApiController.php');
-require_once 'configuration.php';
+require_once ('configuration.php');
 
 $router = new Router();
 

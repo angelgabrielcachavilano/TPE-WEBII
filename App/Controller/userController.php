@@ -1,9 +1,9 @@
 <?php
 
-require_once './App/Model/userModel.php';
-require_once './libs/helpers/authHelper.php';
+require_once ('./App/Model/userModel.php');
+require_once ('./libs/helpers/authHelper.php');
 
-require_once './App/View/userView.php';
+require_once ('./App/View/userView.php');
 
 
 class userController{
