@@ -57,6 +57,12 @@ function star() {
         let id_cerveza = document.querySelector('input[name=idCerveza]').value;
         let id_usuario = document.querySelector('input[name=idUsuario]').value;
 
+        if (puntuacion === "Selecciona un puntaje(Por defecto es 1)") {
+
+            puntuacion = 1;
+        }
+
+
         const comment = {
             contenido: contenido,
             puntuacion: puntuacion,
@@ -64,6 +70,7 @@ function star() {
             id_cerveza: id_cerveza,
             id_usuario: id_usuario
         }
+
 
 
         console.log(comment);

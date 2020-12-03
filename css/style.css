@@ -326,4 +326,17 @@ td {
 
 
 /* FIN CARTA */
+<<<<<<< HEAD
 >>>>>>> 2919583eaf997b0793198d49db109fb13569e05f
+=======
+
+.botonPaginado {
+    text-align: center;
+    color: white;
+    border: 1px solid pink;
+    border-radius: 3px;
+    margin-right: 5px;
+    padding-right: 5px;
+    background-color: black;
+}
+>>>>>>> d7f10b58cf67b9696e8dcc4077f2f54ca020c41c

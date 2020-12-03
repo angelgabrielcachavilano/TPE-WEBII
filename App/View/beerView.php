@@ -12,11 +12,11 @@ class beerView{
     }
 
 
-    function showBeer($beers,$categories,$viewFile){
+    function showBeer($beers,$categories,$viewFile,$paginas){
        
         $this->smarty->assign('beers',$beers);
         $this->smarty->assign('categories',$categories);
-
+        $this->smarty->assign('paginas', $paginas);
         $this->smarty->display($viewFile);
     }
 

@@ -29,7 +29,7 @@
     $r->addRoute("deleteImage/:ID", "GET", "beerController", "deleteImage");
 
     
-    $r->addRoute("showBeer","GET","beerController","showBeer");
+    $r->addRoute("showBeer/:PAG","GET","beerController","showBeer");
     $r->addRoute("showBeerDetail/:ID","GET","beerController","beerDetail");
     $r->addRoute("showAddBeer","GET","beerController","showAddBeer");
     $r->addRoute("addBeer","POST","beerController","addBeer");
